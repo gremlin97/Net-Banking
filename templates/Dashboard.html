@@ -1,0 +1,91 @@
+{#{% load static %}#}
+{#<link href={% static '/css/style.css' %} rel="stylesheet" type="text/css" media="all" />#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<h1>Dashboard</h1><hr>
+{{ msg1 }}<br>
+<h2>Welcome mr {{ user }}</h2><br>
+
+<h3> Check Balance</h3>
+<form action="\checkbal" method="post">
+<button type="submit" name="checkbal">Check</button><br>
+</form>
+{{ msg6 }}
+<br><br><hr>
+
+
+
+<h3>Make a transaction</h3>
+<form action="\transact" method="post">
+Acc no: <input type="text" name="to">
+Name of person: <input type="text" name="toname">
+Amount: <input type="text" name="amount">
+Remarks: <input type="text" name="remarks">
+<button type="submit" name="transact">Transact</button>
+</form>
+{{ msg2 }}
+<br><br><hr>
+
+
+
+<h3> Transaction History</h3>
+<form action="\showtransactions" method="post">
+<button type="submit" name="showtransaction">Show Transactions</button><br>
+</form>
+{{ msg4 }}
+<br><br><hr>
+
+
+<h3>Request for services</h3>
+<form action="\requestservices" method="post">
+            <button type="submit" name="button" value="checkreq">Check Request Status</button><br><br>
+
+    Request for :
+    <select name="reqtype">
+        <option value="passbook">Passbook</option>
+        <option value="chequebook">Chequebook</option>
+        <option value="debitcard">Debit Card</option>
+        <option value="creditcard">Credit Card</option>
+    </select>
+Remarks : <input type="text" name="remarks">
+    <button type="submit" name="button" value="submit">Submit</button>
+
+
+</form>
+{{ msg3 }}
+<br><br><hr>
+
+
+
+<h3>Submit a Query</h3>
+<form action="\submitquery" method="post">
+                <button type="submit" name="button" value="checkquery">Check Query Status</button><br><br>
+
+Title: <input type="text" name="title"><br>
+query: <textarea rows="7" cols="'50" name="query"></textarea>
+    <button type="submit" name="button" value="submit">Submit</button>
+
+</form>
+{{ msg7 }}
+<br><br><hr>
+
+
+
+<h3> Reset Password</h3>
+<form action="\resetpass" method="post">
+Old Password: <input type="password" name="oldpass"><br>
+New Password: <input type="password" name="newpwd"><br>
+Confirm New Password: <input type="password" name="cnewpwd"><br>
+<button type="submit" name="login" value="reset">Reset</button><br>
+</form>
+ {{ msg5 }}
+<br><br><hr>
+
+
+
+</body>
+</html>

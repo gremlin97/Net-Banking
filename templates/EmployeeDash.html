@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Dashboard</title>
+</head>
+<body>
+<h1>Dashboard</h1><hr>
+{{ msg }}<br>
+<h2>Welcome mr {{ emp }}</h2><br>
+
+
+<h3> Requests for services</h3>
+<form action="\employee\showrequests" method="post">
+<button type="submit" name="button" value="showrequests">Show Requests</button><br>
+<button type="submit" name='button' value="resolvedrequests">All Requests Resolved</button><br>
+
+</form>
+{{ msg2 }}
+<br><br><hr>
+
+<h3> Queries</h3>
+<form action="\employee\showqueries" method="post">
+<button type="submit" name='button' value="showqueries">Show Requests</button><br>
+    <button type="submit" name='button' value="resolvedqueries">All Queries Resolved</button><br>
+
+
+</form>
+{{ msg3 }}
+<br><br><hr>
+
+</body>
+</html>

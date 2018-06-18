@@ -1,0 +1,33 @@
+{% load static %}
+<link href={% static '/css/style.css' %} rel="stylesheet" type="text/css" media="all" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+
+<form action="\valregistration" method="post">
+
+    First name:    <input type="text" name="fname">
+    Last name: <input type="text" name="lname"><br>
+    Account type:
+    <select name="type">
+  <option value="current ">Current</option>
+  <option value="savings">Savings</option>
+    </select><br>
+
+    Initial Amount: <input type="text" name="ia"><br>
+
+    Username: <input type="text" name="uname"><br>
+    Password: <input type="password" name="pwd"><br>
+    Confirm Password: <input type="password" name="cpwd"><br>
+
+<button type="submit"  name="register" value="register">Register</button>
+</form>
+<hr>
+{{ msg }}
+
+</body>
+</html>
