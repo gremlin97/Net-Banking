@@ -1,91 +1,406 @@
 {#{% load static %}#}
 {#<link href={% static '/css/style.css' %} rel="stylesheet" type="text/css" media="all" />#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Dashboard</title>#}
+{#</head>#}
+{#<h1>Dashboard</h1><hr>#}
+{#{{ msg1 }}<br>#}
+{#<h2>Welcome mr {{ user }}</h2><br>#}
+{##}
+{#<h3> Check Balance</h3>#}
+{#<form action="\checkbal" method="post">#}
+{#<button type="submit" class="btn btn-primary" name="checkbal">Check</button><br>#}
+{#</form>#}
+{#{{ msg6 }}#}
+{#<br><br><hr>#}
+{##}
+{##}
+{##}
+{#<h3>Make a transaction</h3>#}
+{#<form action="\transact" method="post">#}
+{#Acc no: <input type="text" name="to">#}
+{#Name of person: <input type="text" name="toname">#}
+{#Amount: <input type="text" name="amount">#}
+{#Remarks: <input type="text" name="remarks">#}
+{#<button type="submit" class="btn btn-primary" name="transact">Transact</button>#}
+{#</form>#}
+{#{{ msg2 }}#}
+{#<br><br><hr>#}
+{##}
+{##}
+{##}
+{#<h3> Transaction History</h3>#}
+{#<form action="\showtransactions" method="post">#}
+{#<button type="submit" class="btn btn-primary" name="showtransaction">Show Transactions</button><br>#}
+{#</form>#}
+{#{{ msg4 }}#}
+{#<br><br><hr>#}
+{##}
+{##}
+{#<h3>Request for services</h3>#}
+{#<form action="\requestservices" method="post">#}
+{#            <button type="submit" class="btn btn-primary" name="button" value="checkreq">Check Request Status</button><br><br>#}
+{##}
+{#    Request for :#}
+{#    <select name="reqtype">#}
+{#        <option value="passbook">Passbook</option>#}
+{#        <option value="chequebook">Chequebook</option>#}
+{#        <option value="debitcard">Debit Card</option>#}
+{#        <option value="creditcard">Credit Card</option>#}
+{#    </select>#}
+{#Remarks : <input type="text" name="remarks">#}
+{#    <button type="submit" class="btn btn-primary" name="button" value="submit">Submit</button>#}
+{##}
+{##}
+{#</form>#}
+{#{{ msg3 }}#}
+{#<br><br><hr>#}
+{##}
+{##}
+{##}
+{#<h3>Submit a Query</h3>#}
+{#<form action="\submitquery" method="post">#}
+{#                <button type="submit" class="btn btn-primary" name="button" value="checkquery">Check Query Status</button><br><br>#}
+{##}
+{#Title: <input type="text" name="title"><br>#}
+{#query: <textarea rows="7" cols="'50" name="query"></textarea>#}
+{#    <button type="submit" class="btn btn-primary" name="button" value="submit">Submit</button>#}
+{##}
+{#</form>#}
+{#{{ msg7 }}#}
+{#<br><br><hr>#}
+{##}
+{##}
+{##}
+{#<h3> Reset Password</h3>#}
+{#<form action="\resetpass" method="post">#}
+{#Old Password: <input type="password" name="oldpass"><br>#}
+{#New Password: <input type="password" name="newpwd"><br>#}
+{#Confirm New Password: <input type="password" name="cnewpwd"><br>#}
+{#<button type="submit" class="btn btn-primary" name="login" value="reset">Reset</button><br>#}
+{#</form>#}
+{# {{ msg5 }}#}
+{#<br><br><hr>#}
+{##}
+{##}
+{##}
+{#</body>#}
+{#</html>#}
+
+
+
+
+
+
+
+
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths no-ipad no-iphone no-ipod no-appleios js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths no-ipad no-iphone no-ipod no-appleios"><head>
+<title>Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="Colored Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href={% static "css/bootstrap2.css"%}>
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href={% static "css/style (2).css"%} rel="stylesheet" type="text/css">
+<!-- font CSS -->
+<link href="//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+<!-- font-awesome icons -->
+<link rel="stylesheet" href={% static "css/font.css"%} type="text/css">
+<link href={% static "css/font-awesome (2).css"%} rel="stylesheet">
+<!-- //font-awesome icons -->
+<script src={% static "js/jquery2.0.3.min.js"%}></script>
+<script src={% static "js/modernizr.js"%}></script>
+<script src={% static "js/jquery.cookie.js"%}></script>
+<script src={% static "js/screenfull.js"%}></script>
+		<script>
+		$(function () {
+			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+			if (!screenfull.enabled) {
+				return false;
+			}
+
+
+
+			$('#toggle').click(function () {
+				screenfull.toggle($('#container')[0]);
+			});
+		});
+		</script>
+<!-- charts -->
+<script src={% static "js/raphael-min.js"%}></script>
+<script src={% static "js/morris.js"%}></script>
+<link rel="stylesheet" href={% static "css/morris.css"%}>
+<!-- //charts -->
+<!--skycons-icons-->
+<script src={% static "js/skycons.js"%}></script>
+<!--//skycons-icons-->
+
 </head>
-<h1>Dashboard</h1><hr>
-{{ msg1 }}<br>
-<h2>Welcome mr {{ user }}</h2><br>
-
-<h3> Check Balance</h3>
-<form action="\checkbal" method="post">
-<button type="submit" name="checkbal">Check</button><br>
-</form>
-{{ msg6 }}
-<br><br><hr>
+<body class="dashboard-page" style="">
 
 
+	<section class="wrapper scrollable" style="opacity: 1;">
 
-<h3>Make a transaction</h3>
-<form action="\transact" method="post">
-Acc no: <input type="text" name="to">
-Name of person: <input type="text" name="toname">
-Amount: <input type="text" name="amount">
-Remarks: <input type="text" name="remarks">
-<button type="submit" name="transact">Transact</button>
-</form>
-{{ msg2 }}
-<br><br><hr>
+		<section class="title-bar">
+			<div class="logo">
+                <h1><a href="index.html"><img src={% static "images/logo.png"%} alt=""></a></h1><div style="background-size: cover"><h1>Dashboard</h1></div>
+			</div>
 
 
-
-<h3> Transaction History</h3>
-<form action="\showtransactions" method="post">
-<button type="submit" name="showtransaction">Show Transactions</button><br>
-</form>
-{{ msg4 }}
-<br><br><hr>
-
-
-<h3>Request for services</h3>
-<form action="\requestservices" method="post">
-            <button type="submit" name="button" value="checkreq">Check Request Status</button><br><br>
-
-    Request for :
-    <select name="reqtype">
-        <option value="passbook">Passbook</option>
-        <option value="chequebook">Chequebook</option>
-        <option value="debitcard">Debit Card</option>
-        <option value="creditcard">Credit Card</option>
-    </select>
-Remarks : <input type="text" name="remarks">
-    <button type="submit" name="button" value="submit">Submit</button>
+			<div class="header-right">
+				<div class="profile_details_left">
+					<div class="header-right-left">
+                        <form action="/logout" action="post">
+                        <br><button type="submit" class="btn btn-primary" name="logout" >Log out</button>
+                                    </form>
+					</div>
 
 
-</form>
-{{ msg3 }}
-<br><br><hr>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</section><hr>
+        <p><h2>Welcome mr {{ user }}</h2></p><br><h4>{{ msg1 }}</h4>
+		<div class="main-grid">
+
+			<div class="social grid">
+					<div class="grid-info">
+						<h3> Check Balance</h3><hr>
+                                    <form action="\checkbal" method="post">
+                                       <button type="submit" class="btn btn-primary" name="checkbal" >Check</button><br>
+                                    </form>
+                                    {{ msg6 }}
+						<div class="clearfix"> </div>
+					</div>
+			</div>
+
+            <div class="social grid">
+					<div class="grid-info">
+						<h3>Make a transaction</h3><hr>
+                                    <form action="\transact" method="post">
+                                        Acc no: <input type="text" name="to" required>
+                                        Name of person: <input type="text" name="toname" required>
+                                        Amount: <input type="text" name="amount" required>
+                                        Remarks: <input type="text" name="remarks"><br><br>
+                                        <button type="submit" class="btn btn-primary" name="transact">Transact</button>
+                                    </form>
+                                        {{ msg2 }}
+						<div class="clearfix"> </div>
+					</div>
+			</div>
+
+            <div class="social grid">
+					<div class="grid-info">
+						<h3> Transaction History</h3><hr>
+                                <form action="\showtransactions" method="post">
+                                <button type="submit" class="btn btn-primary" name="showtransaction">Show Transactions</button><br>
+                                </form><hr>
+                                {% if msg4 %}
+                                            <table border="3"><tr bgcolor="aqua" >
+                                            <td>From Accno</td>
+                                            <td>To Accno</td>
+                                            <td>From name</td>
+                                                <td>To name</td>
+                                                <td>Amount</td>
+                                            <td>Remarks</td></tr>
+                                            {% for i in msg4 %}
+                                                <tr><td>{{ i.1}}</td>
+                                                <td>{{ i.2}}</td>
+                                                <td>{{ i.3}}</td>
+                                                    <td>{{ i.4}}</td>
+                                                <td>{{ i.5}}</td>
+                                                <td>{{ i.6}}</td></tr>
+
+                                            {% endfor %}
+                                            </table>
+                                        {% endif %}
+						<div class="clearfix"> </div>
+					</div>
+			</div>
+
+
+{#			<div class="agile-grids">#}
+{#				<div class="col-md-4 charts-right">#}
+{#					<!-- area-chart -->#}
+{#					<div class="area-grids">#}
+{#						<div class="area-grids-heading">#}
+{#							<h3>Area charts</h3>#}
+{#						</div>#}
+{#						<div id="graph4">hey there</div>#}
+{##}
+{##}
+{#					</div>#}
+{#					<!-- //area-chart -->#}
+{#				</div>#}
+{#				<div class="col-md-8 chart-left">#}
+{#					<!-- updating-data -->#}
+{#					<div class="agile-Updating-grids">#}
+{#						<div class="area-grids-heading">#}
+{#							<h3>Updating data</h3>#}
+{#						</div>#}
+{#						<div id="graph1" style="position: relative;">ahaa</div>#}
+{##}
+{##}
+{#					</div>#}
+{#					<!-- //updating-data -->#}
+{#				</div>#}
+{#				<div class="clearfix"> </div>#}
+{#			</div>#}
 
 
 
-<h3>Submit a Query</h3>
-<form action="\submitquery" method="post">
-                <button type="submit" name="button" value="checkquery">Check Query Status</button><br><br>
 
-Title: <input type="text" name="title"><br>
-query: <textarea rows="7" cols="'50" name="query"></textarea>
-    <button type="submit" name="button" value="submit">Submit</button>
+                                <div class="agile-bottom-grids">
+				<div class="col-md-6 agile-bottom-right">
+					<div class="agile-bottom-grid">
+						<div class="area-grids-heading">
+							<h3>Request for services</h3><hr>
+						</div>
+						<div id="graph6" style="position: relative;">
 
-</form>
-{{ msg7 }}
-<br><br><hr>
+                                        <form action="\requestservices" method="post">
+                                                    <button type="submit" class="btn btn-primary" name="button" value="checkreq">Check Request Status</button><br><br>
 
-
-
-<h3> Reset Password</h3>
-<form action="\resetpass" method="post">
-Old Password: <input type="password" name="oldpass"><br>
-New Password: <input type="password" name="newpwd"><br>
-Confirm New Password: <input type="password" name="cnewpwd"><br>
-<button type="submit" name="login" value="reset">Reset</button><br>
-</form>
- {{ msg5 }}
-<br><br><hr>
+                                            Request for :
+                                            <select name="reqtype" required>
+                                                <option value="passbook">Passbook</option>
+                                                <option value="chequebook">Chequebook</option>
+                                                <option value="debitcard">Debit Card</option>
+                                                <option value="creditcard">Credit Card</option>
+                                            </select>
+                                        Remarks : <input type="text" name="remarks"><br><br>
+                                            <button type="submit" class="btn btn-primary" name="button" value="submit">Submit</button>
 
 
+                                        </form>
 
-</body>
-</html>
+
+                                        <hr>
+                                        {% if msg3 %}
+                                            <table border="3"><tr bgcolor="aqua" >
+                                            <td>Acc no</td>
+                                            <td>Request Type</td>
+                                            <td>Remarks</td>
+                                            <td>Status</td></tr>
+                                            {% for i in msg3 %}
+                                                <tr><td>{{ i.1}}</td>
+                                                <td>{{ i.2}}</td>
+                                                <td>{{ i.3}}</td>
+                                                    <td>{{ i.4}}</td></tr>
+
+                                            {% endfor %}
+                                            </table>
+                                        {% endif %}
+
+
+
+
+                        </div>
+
+					</div>
+				</div>
+				<div class="col-md-6 agile-bottom-left">
+					<div class="agile-bottom-grid">
+						<div class="area-grids-heading">
+							<h3>Submit a Query</h3><hr>
+
+
+                                    <form action="\submitquery" method="post">
+                                                    <button type="submit" class="btn btn-primary" name="button" value="checkquery">Check Query Status</button><br><br>
+
+                                    Title: <input type="text" name="title" ><br>
+                                    query: <textarea rows="7" cols="'50" name="query" ></textarea>
+                                        <button type="submit" class="btn btn-primary" name="button" value="submit">Submit</button>
+
+                                    </form><hr>
+                                    {% if msg7 %}
+                                            <table border="3"><tr bgcolor="aqua" >
+                                            <td>Acc no</td>
+                                            <td>Title</td>
+                                            <td>Query</td>
+                                            <td>Status</td></tr>
+                                            {% for i in msg7 %}
+                                                <tr><td>{{ i.1}}</td>
+                                                <td>{{ i.2}}</td>
+                                                <td>{{ i.3}}</td>
+                                                    <td>{{ i.4}}</td></tr>
+
+                                            {% endfor %}
+                                            </table>
+                                        {% endif %}
+
+						</div>
+
+
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+
+            <div class="social grid">
+					<div class="grid-info">
+						<div >
+							<h3> Reset Password</h3><hr>
+						</div>
+						<div id="graph6" style="position: relative;">
+
+
+                                <form action="\resetpass" method="post">
+                                Old Password: <input type="password" name="oldpass" required><br>
+                                New Password: <input type="password" name="newpwd" required><br>
+                                Confirm New Password: <input type="password" name="cnewpwd" required><br>
+                                <button type="submit" class="btn btn-primary" name="login" value="reset">Reset</button><br>
+                                </form>
+                                 {{ msg5 }}
+                        </div>
+
+					</div>
+				</div>
+
+{#			<div class="agile-two-grids">#}
+{#				<div class="col-md-6 count">#}
+{#						<div class="count-grid">#}
+{#							<h3 class="title">Countdown</h3>#}
+{##}
+{#							<div class="clearfix"> </div>#}
+{##}
+{##}
+{#						</div>#}
+{#				</div>#}
+{#				<div class="col-md-6 weather">#}
+{#					<div class="weather-right">#}
+{#						<div class="weather-heading">#}
+{#							<h3>Weather Report</h3>#}
+{#						</div>#}
+{##}
+{##}
+{##}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="clearfix"> </div>#}
+{#			</div>#}
+{#		</div>#}
+
+		<!-- footer -->
+		<div class="footer" style="background-color: #a6e1ec">
+			<p>All Rights Reserved</p>
+		</div>
+		<!-- //footer -->
+        </div></section>
+	<script src={% static "js/bootstrap2.js"%}></script>
+	<script src={% static "js/proton.js"%}></script>
+
+
+
+</body></html>

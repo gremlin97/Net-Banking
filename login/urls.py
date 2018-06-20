@@ -23,6 +23,9 @@ url(r'^resetpass', views.resetpass, name='resetpass'),
 url(r'^showtransactions', views.showtransactions, name='showtransactions'),
 url(r'^checkbal', views.checkbal, name='checkbal'),
 url(r'^submitquery', views.submitquery, name='submitquery'),
+url(r'^checkbal', views.checkbal, name='checkbal'),
+url(r'^logout', views.logout, name='logout'),
+
 
 
 

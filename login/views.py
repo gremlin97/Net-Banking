@@ -6,8 +6,14 @@ from mysql.connector import Error
 def index(request):
     return render(request, 'index.html')
 def login(request):
-    return render(request, 'login.html')
 
+    if ('Accno' in request.session):
+        return render(request, 'Dashboard.html', {'user': request.session.get('uname') ,'msg': request.session.get("uname"), 'msg1' : 'Sucessfully logged in' , 'msg2': ''})
+    else:
+        return render(request, 'login.html')
+def logout(request):
+    request.session.flush()
+    return render(request,'index.html')
 def about(request):
     return render(request, 'about.html')
 def contact(request):
@@ -24,9 +30,6 @@ def Dashboard(request):
         return render(request, 'Dashboard.html', {'user': request.session.get('uname') ,'msg': request.session.get("uname"), 'msg1' : 'Sucessfully logged in' , 'msg2': ''})
     else:
         return render(request, 'login.html')
-
-def resetpasspage(request):
-    return render(request, "resetpass.html")
 
 def resetpass(request):
     Accno = request.session.get('Accno')
@@ -48,14 +51,14 @@ def resetpass(request):
             cursor.close()
             conn.close()
             msg = "password sucessfully updated"
-            return render(request,"Dashboard.html", {'msg': request.session.get("uname"),'msg5': msg})
+            return render(request,"Dashboard.html", {'user': request.session.get("uname"),'msg5': msg})
         else:
             msg = "You entered incorrect password"
-            return render(request, "Dashboard.html", {'msg': request.session.get("uname"),'msg5': msg})
+            return render(request, "Dashboard.html", {'user': request.session.get("uname"),'msg5': msg})
 
     else:
         msg = "confirm password doesn't match"
-        return render(request, "Dashboard.html", {'msg': request.session.get("uname"),'msg5': msg})
+        return render(request, "Dashboard.html", {'user': request.session.get("uname"),'msg5': msg})
 
 def authenticate(request):
     uname = request.POST.get('uname')
@@ -77,10 +80,6 @@ def authenticate(request):
     else:
         msg = "Password is incorrect"
         return render(request, 'login.html', {"msg": msg})
-
-        # if (uname not in q2):
-        #     msg = "User doesn't exist"
-        #     return render(request, 'login.html', {"msg": msg})
 
 def valregistration(request):
     fname = request.POST.get('fname')
@@ -148,7 +147,7 @@ def transact(request):
     cursor.close()
     conn.close()
     msg = 'Transaction successfully done.'
-    return render(request, 'Dashboard.html', {'msg2': msg})
+    return render(request, 'Dashboard.html', {'msg2': msg , "user" : request.session.get('uname')})
 
 def requestservices(request):
     type = request.POST.get('reqtype')
@@ -163,13 +162,13 @@ def requestservices(request):
         cursor.execute(query)
         conn.commit()
         msg = "Requested Sucessfully"
-        return render(request , "Dashboard.html", {'msg': request.session.get("uname"),'msg3' : msg})
+        return render(request , "Dashboard.html", {'user': request.session.get("uname"),'msg3' : msg})
 
     if(button == "checkreq"):
         query2 = "SELECT * FROM user_requests WHERE UserAccno = %d "  %(Accno)
         cursor.execute(query2)
         list = cursor.fetchall()
-        return render(request , "Dashboard.html", {'msg': request.session.get("uname"),'msg3' : list})
+        return render(request , "Dashboard.html", {'user': request.session.get("uname"),'msg3' : list})
 
     cursor.close()
     conn.close()
@@ -186,9 +185,7 @@ def showtransactions(request):
     cursor.close()
     conn.close()
 
-    dict = {'From Acc no ' : list[0][0] , "To Acc no " : list[0][1], "From " : list[0][2], "To " : list[0][3], "Amount " : list[0][4], 'Remarks ': list[0][5] }
-
-    return render(request, 'Dashboard.html', {"msg4" : dict})
+    return render(request, 'Dashboard.html', {"msg4" : list , "user" : request.session.get('uname')})
 
 def checkbal(request):
     Accno = request.session.get('Accno')
@@ -200,7 +197,7 @@ def checkbal(request):
     list = cursor.fetchone()
     cursor.close()
     conn.close()
-    return render(request , "Dashboard.html", {'msg6' : list[0]})
+    return render(request , "Dashboard.html", {'msg6' : list[0], 'user' : request.session.get('uname')})
 
 def submitquery(request):
     title = request.POST.get('title')
@@ -216,13 +213,13 @@ def submitquery(request):
         cursor.execute(query1)
         conn.commit()
         msg = "Submited query Sucessfully"
-        return render(request, "Dashboard.html", {'msg': request.session.get("uname"),'msg7': msg})
+        return render(request, "Dashboard.html", {'user': request.session.get("uname"),'msg7': msg})
 
     if(button == "checkquery"):
         query2 = "SELECT * FROM user_queries WHERE Accno = %d " %(Accno)
         cursor.execute(query2)
         list = cursor.fetchall()
-        return render(request, "Dashboard.html", {'msg': request.session.get("uname"),'msg7': list})
+        return render(request, "Dashboard.html", {'user': request.session.get("uname"),'msg7': list})
 
     cursor.close()
     conn.close()

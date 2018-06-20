@@ -3,13 +3,15 @@ import mysql
 from mysql.connector import Error
 
 # Create your views here.
-
+def logout(request):
+    request.session.flush()
+    return render(request,'index.html')
 def emplogin(request):
     return render(request,'emplogin.html')
 def dashboard(request):
     if ('EmpId' in request.session):
         return render(request, 'EmployeeDash.html',
-                      {'user': request.session.get('Empuname'), 'msg1': 'Sucessfully logged in'})
+                      {'emp': request.session.get('Empuname'), 'msg1': 'Sucessfully logged in'})
     else:
         return render(request, 'emplogin.html')
 

@@ -1,33 +1,102 @@
 {% load static %}
-<link href={% static '/css/style.css' %} rel="stylesheet" type="text/css" media="all" />
+{#<link href={% static '/css/style.css' %} rel="stylesheet" type="text/css" media="all" />#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Registration</title>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<form action="\valregistration" method="post">#}
+{##}
+{#    First name:    <input type="text" name="fname">#}
+{#    Last name: <input type="text" name="lname"><br>#}
+{#    Account type:#}
+{#    <select name="type">#}
+{#  <option value="current ">Current</option>#}
+{#  <option value="savings">Savings</option>#}
+{#    </select><br>#}
+{##}
+{#    Initial Amount: <input type="text" name="ia"><br>#}
+{##}
+{#    Username: <input type="text" name="uname"><br>#}
+{#    Password: <input type="password" name="pwd"><br>#}
+{#    Confirm Password: <input type="password" name="cpwd"><br>#}
+{##}
+{#<button type="submit"  name="register" value="register">Register</button>#}
+{#</form>#}
+{#<hr>#}
+{#{{ msg }}#}
+{##}
+{#</body>#}
+{#</html>#}
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Registration</title>
+<title>Register</title>
+<!-- Meta tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="package signup Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+
+<link href={% static "css/style3.css"%} rel="stylesheet" type="text/css" media="all">
+<link href="//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
 </head>
 <body>
-
-<form action="\valregistration" method="post">
-
-    First name:    <input type="text" name="fname">
-    Last name: <input type="text" name="lname"><br>
-    Account type:
-    <select name="type">
-  <option value="current ">Current</option>
-  <option value="savings">Savings</option>
-    </select><br>
-
-    Initial Amount: <input type="text" name="ia"><br>
-
-    Username: <input type="text" name="uname"><br>
-    Password: <input type="password" name="pwd"><br>
-    Confirm Password: <input type="password" name="cpwd"><br>
-
-<button type="submit"  name="register" value="register">Register</button>
-</form>
-<hr>
-{{ msg }}
-
+<div class="form">
+<h1>Registration Form</h1>
+	<div class="form-content">
+		<form action="\valregistration" method="post">
+			<div class="form-info">
+				<h2>Signup</h2>
+			</div>
+			<div class="name">
+				<label>First Name</label>
+				<input class="input1" type="text" name="fname" required="">
+			</div>
+            <div class="name">
+				<label>Last Name</label>
+				<input class="input1" type="text" name="lname"  required="">
+			</div>
+            <div class="name">
+				    <label>Account type</label>
+                     <select name="type">
+                    <option value="current ">Current</option>
+                         <option value="savings">Savings</option>
+                      </select><br>
+			</div>
+            <div class="name">
+				<label>Initial Amount</label>
+				<input class="input1" type="text" name="ia"  required="">
+			</div>
+			<div class="email">
+				<label>Email</label>
+				<input class="input1" type="email" name="email"  required="">
+			</div>
+            <div class="name">
+				<label>Username</label>
+				<input class="input1" type="text" name="uname"  required="">
+			</div>
+			<div class="pass1">
+				<label>Password</label>
+				<input class="input1" type="password" name="pwd"  required="">
+			</div>
+			<div class="pass2">
+				<label>Confirm-Password</label>
+				<input class="input1" type="password" name="cpwd"  required="">
+			</div>
+			<div class="signup">
+				<input type="submit" value="Register">
+			</div>
+		</form>
+	</div>
+</div>
+<footer> All rights reserved</footer>
 </body>
 </html>
